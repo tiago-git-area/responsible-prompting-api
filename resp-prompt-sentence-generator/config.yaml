@@ -1,0 +1,76 @@
+name: mitigator
+blocks:
+  - name: gen_topics
+    temperature: 1.0
+    max_new_tokens: 1500
+    repetition_penalty: 1
+    temperature: 1.0
+    top_p: 1
+    #min_new_tokens: 1
+    decoding_method: sample
+
+  - name: gen_questions
+    temperature: 1.0
+    max_new_tokens: 1500
+    min_new_tokens: 1
+    decoding_method: sample
+    #top_k: 50
+    top_p: 1.0
+
+  - name: llm_judge_questions
+    temperature: 0.7
+    max_new_tokens: 50
+    min_new_tokens: 1
+    top_k: 50
+    top_p: 0.95
+    #decoding_method: sample
+  
+  - name: gen_principles 
+    temperature: 1.0
+    max_new_tokens: 1500
+    min_new_tokens: 1
+    decoding_method: sample
+    temperature: 0.7
+    frequency_penalty: 0.05
+    presence_penalty: 0.05
+    logprobs: True
+
+  - name: refined_principles_base
+    temperature: 0.7
+    max_new_tokens: 1500
+    min_new_tokens: 1
+    frequency_penalty: 0.05
+    presence_penalty: 0.05
+    logprobs: True
+    decoding_method: sample
+
+  - name: refined_principles_critique
+    temperature: 0.7
+    max_new_tokens: 1500
+    min_new_tokens: 1
+    decoding_method: sample
+    frequency_penalty: 0.05
+    presence_penalty: 0.05
+    logprobs: True
+# Note that greedy decoding ==> temp=0, ie decoding_method takes precedence over temp param
+  - name: gen_good_bad_responses_base
+    temperature: 0
+    max_new_tokens: 1500
+    min_new_tokens: 1
+    decoding_method: greedy
+    repetition_penalty: 1
+  
+  - name: gen_good_bad_responses_critique
+    temperature: 0
+    max_new_tokens: 1500
+    min_new_tokens: 1
+    decoding_method: greedy
+    repetition_penalty: 1
+
+  - name: llm_judge_responses
+    temperature: 0.7
+    max_new_tokens: 50
+    min_new_tokens: 1
+    top_k: 50
+    top_p: 0.95
+    #decoding_method: sample
