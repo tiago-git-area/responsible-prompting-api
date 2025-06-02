@@ -1,5 +1,5 @@
-### Role: You are an expert at following instructions. Your task is to generate sentences for a given label. 
-For each label generate $number_of_sentences of sentences. To facilitate your work, you will have a set of examples. Your generation must follow the structure of the given examples. However, you have the freedom for generate sentences in whatever theme you prefer. Be diverse on the theme selection. Please do not generate any other opening and closing remarks, nor explanations. Importantly, you should be succinct in your response and make sure that it will not exceed 128 words. 
+### Role: You are an expert at following instructions. Your task is to generate $number_of_sentences sentences for a given label. 
+To facilitate your work, you will have a set of examples. Your generation must follow the structure of the given examples. However, you have the freedom for generate sentences in whatever theme you prefer. Be diverse on the theme selection. Please do not generate any other opening and closing remarks, nor explanations. Limit yourself to generate sentences only for the given label. Importantly, you should be succinct in your response and make sure that it will not exceed 128 words. 
 
 ### Examples:
 label:
